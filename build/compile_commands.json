@@ -1,0 +1,32 @@
+[
+{
+  "directory": "D:/code/cmake/fox-li/build",
+  "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\Rectangle.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\Rectangle.cpp",
+  "file": "D:/code/cmake/fox-li/src/Rectangle.cpp",
+  "output": "CMakeFiles/MyProject.dir/src/Rectangle.cpp.obj"
+},
+{
+  "directory": "D:/code/cmake/fox-li/build",
+  "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\app.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\app.cpp",
+  "file": "D:/code/cmake/fox-li/src/app.cpp",
+  "output": "CMakeFiles/MyProject.dir/src/app.cpp.obj"
+},
+{
+  "directory": "D:/code/cmake/fox-li/build",
+  "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\draw.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\draw.cpp",
+  "file": "D:/code/cmake/fox-li/src/draw.cpp",
+  "output": "CMakeFiles/MyProject.dir/src/draw.cpp.obj"
+},
+{
+  "directory": "D:/code/cmake/fox-li/build",
+  "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\integral.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\integral.cpp",
+  "file": "D:/code/cmake/fox-li/src/integral.cpp",
+  "output": "CMakeFiles/MyProject.dir/src/integral.cpp.obj"
+},
+{
+  "directory": "D:/code/cmake/fox-li/build",
+  "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\main.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\main.cpp",
+  "file": "D:/code/cmake/fox-li/src/main.cpp",
+  "output": "CMakeFiles/MyProject.dir/src/main.cpp.obj"
+}
+]
