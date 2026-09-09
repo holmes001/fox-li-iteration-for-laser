@@ -1,6 +1,9 @@
+#include "integral.h"
+
 #include <iostream>
-#include <math.h>   // 仅用于测试中的数学函数
+
 #include <complex>
+#include <cmath>   
 #include <functional>
 
 /* ---------- 测试函数 (示例) ---------- */

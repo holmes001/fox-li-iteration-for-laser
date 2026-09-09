@@ -71,56 +71,26 @@ include CMakeFiles/MyProject.dir/flags.make
 CMakeFiles/MyProject.dir/codegen:
 .PHONY : CMakeFiles/MyProject.dir/codegen
 
-CMakeFiles/MyProject.dir/src/Rectangle.cpp.obj: CMakeFiles/MyProject.dir/flags.make
-CMakeFiles/MyProject.dir/src/Rectangle.cpp.obj: CMakeFiles/MyProject.dir/includes_CXX.rsp
-CMakeFiles/MyProject.dir/src/Rectangle.cpp.obj: D:/code/cmake/fox-li/src/Rectangle.cpp
-CMakeFiles/MyProject.dir/src/Rectangle.cpp.obj: CMakeFiles/MyProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cmake\fox-li\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MyProject.dir/src/Rectangle.cpp.obj"
-	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/Rectangle.cpp.obj -MF CMakeFiles\MyProject.dir\src\Rectangle.cpp.obj.d -o CMakeFiles\MyProject.dir\src\Rectangle.cpp.obj -c D:\code\cmake\fox-li\src\Rectangle.cpp
+CMakeFiles/MyProject.dir/src/diffraction.cpp.obj: CMakeFiles/MyProject.dir/flags.make
+CMakeFiles/MyProject.dir/src/diffraction.cpp.obj: CMakeFiles/MyProject.dir/includes_CXX.rsp
+CMakeFiles/MyProject.dir/src/diffraction.cpp.obj: D:/code/cmake/fox-li/src/diffraction.cpp
+CMakeFiles/MyProject.dir/src/diffraction.cpp.obj: CMakeFiles/MyProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cmake\fox-li\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MyProject.dir/src/diffraction.cpp.obj"
+	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/diffraction.cpp.obj -MF CMakeFiles\MyProject.dir\src\diffraction.cpp.obj.d -o CMakeFiles\MyProject.dir\src\diffraction.cpp.obj -c D:\code\cmake\fox-li\src\diffraction.cpp
 
-CMakeFiles/MyProject.dir/src/Rectangle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyProject.dir/src/Rectangle.cpp.i"
-	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\code\cmake\fox-li\src\Rectangle.cpp > CMakeFiles\MyProject.dir\src\Rectangle.cpp.i
+CMakeFiles/MyProject.dir/src/diffraction.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyProject.dir/src/diffraction.cpp.i"
+	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\code\cmake\fox-li\src\diffraction.cpp > CMakeFiles\MyProject.dir\src\diffraction.cpp.i
 
-CMakeFiles/MyProject.dir/src/Rectangle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyProject.dir/src/Rectangle.cpp.s"
-	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\code\cmake\fox-li\src\Rectangle.cpp -o CMakeFiles\MyProject.dir\src\Rectangle.cpp.s
-
-CMakeFiles/MyProject.dir/src/app.cpp.obj: CMakeFiles/MyProject.dir/flags.make
-CMakeFiles/MyProject.dir/src/app.cpp.obj: CMakeFiles/MyProject.dir/includes_CXX.rsp
-CMakeFiles/MyProject.dir/src/app.cpp.obj: D:/code/cmake/fox-li/src/app.cpp
-CMakeFiles/MyProject.dir/src/app.cpp.obj: CMakeFiles/MyProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cmake\fox-li\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MyProject.dir/src/app.cpp.obj"
-	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/app.cpp.obj -MF CMakeFiles\MyProject.dir\src\app.cpp.obj.d -o CMakeFiles\MyProject.dir\src\app.cpp.obj -c D:\code\cmake\fox-li\src\app.cpp
-
-CMakeFiles/MyProject.dir/src/app.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyProject.dir/src/app.cpp.i"
-	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\code\cmake\fox-li\src\app.cpp > CMakeFiles\MyProject.dir\src\app.cpp.i
-
-CMakeFiles/MyProject.dir/src/app.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyProject.dir/src/app.cpp.s"
-	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\code\cmake\fox-li\src\app.cpp -o CMakeFiles\MyProject.dir\src\app.cpp.s
-
-CMakeFiles/MyProject.dir/src/draw.cpp.obj: CMakeFiles/MyProject.dir/flags.make
-CMakeFiles/MyProject.dir/src/draw.cpp.obj: CMakeFiles/MyProject.dir/includes_CXX.rsp
-CMakeFiles/MyProject.dir/src/draw.cpp.obj: D:/code/cmake/fox-li/src/draw.cpp
-CMakeFiles/MyProject.dir/src/draw.cpp.obj: CMakeFiles/MyProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cmake\fox-li\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MyProject.dir/src/draw.cpp.obj"
-	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/draw.cpp.obj -MF CMakeFiles\MyProject.dir\src\draw.cpp.obj.d -o CMakeFiles\MyProject.dir\src\draw.cpp.obj -c D:\code\cmake\fox-li\src\draw.cpp
-
-CMakeFiles/MyProject.dir/src/draw.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyProject.dir/src/draw.cpp.i"
-	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\code\cmake\fox-li\src\draw.cpp > CMakeFiles\MyProject.dir\src\draw.cpp.i
-
-CMakeFiles/MyProject.dir/src/draw.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyProject.dir/src/draw.cpp.s"
-	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\code\cmake\fox-li\src\draw.cpp -o CMakeFiles\MyProject.dir\src\draw.cpp.s
+CMakeFiles/MyProject.dir/src/diffraction.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyProject.dir/src/diffraction.cpp.s"
+	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\code\cmake\fox-li\src\diffraction.cpp -o CMakeFiles\MyProject.dir\src\diffraction.cpp.s
 
 CMakeFiles/MyProject.dir/src/integral.cpp.obj: CMakeFiles/MyProject.dir/flags.make
 CMakeFiles/MyProject.dir/src/integral.cpp.obj: CMakeFiles/MyProject.dir/includes_CXX.rsp
 CMakeFiles/MyProject.dir/src/integral.cpp.obj: D:/code/cmake/fox-li/src/integral.cpp
 CMakeFiles/MyProject.dir/src/integral.cpp.obj: CMakeFiles/MyProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cmake\fox-li\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MyProject.dir/src/integral.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cmake\fox-li\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MyProject.dir/src/integral.cpp.obj"
 	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/integral.cpp.obj -MF CMakeFiles\MyProject.dir\src\integral.cpp.obj.d -o CMakeFiles\MyProject.dir\src\integral.cpp.obj -c D:\code\cmake\fox-li\src\integral.cpp
 
 CMakeFiles/MyProject.dir/src/integral.cpp.i: cmake_force
@@ -135,7 +105,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.obj: CMakeFiles/MyProject.dir/flags.make
 CMakeFiles/MyProject.dir/src/main.cpp.obj: CMakeFiles/MyProject.dir/includes_CXX.rsp
 CMakeFiles/MyProject.dir/src/main.cpp.obj: D:/code/cmake/fox-li/src/main.cpp
 CMakeFiles/MyProject.dir/src/main.cpp.obj: CMakeFiles/MyProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cmake\fox-li\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MyProject.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cmake\fox-li\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MyProject.dir/src/main.cpp.obj"
 	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/main.cpp.obj -MF CMakeFiles\MyProject.dir\src\main.cpp.obj.d -o CMakeFiles\MyProject.dir\src\main.cpp.obj -c D:\code\cmake\fox-li\src\main.cpp
 
 CMakeFiles/MyProject.dir/src/main.cpp.i: cmake_force
@@ -146,23 +116,111 @@ CMakeFiles/MyProject.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyProject.dir/src/main.cpp.s"
 	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\code\cmake\fox-li\src\main.cpp -o CMakeFiles\MyProject.dir\src\main.cpp.s
 
+CMakeFiles/MyProject.dir/src/optic.cpp.obj: CMakeFiles/MyProject.dir/flags.make
+CMakeFiles/MyProject.dir/src/optic.cpp.obj: CMakeFiles/MyProject.dir/includes_CXX.rsp
+CMakeFiles/MyProject.dir/src/optic.cpp.obj: D:/code/cmake/fox-li/src/optic.cpp
+CMakeFiles/MyProject.dir/src/optic.cpp.obj: CMakeFiles/MyProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cmake\fox-li\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MyProject.dir/src/optic.cpp.obj"
+	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/optic.cpp.obj -MF CMakeFiles\MyProject.dir\src\optic.cpp.obj.d -o CMakeFiles\MyProject.dir\src\optic.cpp.obj -c D:\code\cmake\fox-li\src\optic.cpp
+
+CMakeFiles/MyProject.dir/src/optic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyProject.dir/src/optic.cpp.i"
+	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\code\cmake\fox-li\src\optic.cpp > CMakeFiles\MyProject.dir\src\optic.cpp.i
+
+CMakeFiles/MyProject.dir/src/optic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyProject.dir/src/optic.cpp.s"
+	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\code\cmake\fox-li\src\optic.cpp -o CMakeFiles\MyProject.dir\src\optic.cpp.s
+
+CMakeFiles/MyProject.dir/src/visualize.cpp.obj: CMakeFiles/MyProject.dir/flags.make
+CMakeFiles/MyProject.dir/src/visualize.cpp.obj: CMakeFiles/MyProject.dir/includes_CXX.rsp
+CMakeFiles/MyProject.dir/src/visualize.cpp.obj: D:/code/cmake/fox-li/src/visualize.cpp
+CMakeFiles/MyProject.dir/src/visualize.cpp.obj: CMakeFiles/MyProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\code\cmake\fox-li\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MyProject.dir/src/visualize.cpp.obj"
+	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/visualize.cpp.obj -MF CMakeFiles\MyProject.dir\src\visualize.cpp.obj.d -o CMakeFiles\MyProject.dir\src\visualize.cpp.obj -c D:\code\cmake\fox-li\src\visualize.cpp
+
+CMakeFiles/MyProject.dir/src/visualize.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyProject.dir/src/visualize.cpp.i"
+	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\code\cmake\fox-li\src\visualize.cpp > CMakeFiles\MyProject.dir\src\visualize.cpp.i
+
+CMakeFiles/MyProject.dir/src/visualize.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyProject.dir/src/visualize.cpp.s"
+	E:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\code\cmake\fox-li\src\visualize.cpp -o CMakeFiles\MyProject.dir\src\visualize.cpp.s
+
 # Object files for target MyProject
 MyProject_OBJECTS = \
-"CMakeFiles/MyProject.dir/src/Rectangle.cpp.obj" \
-"CMakeFiles/MyProject.dir/src/app.cpp.obj" \
-"CMakeFiles/MyProject.dir/src/draw.cpp.obj" \
+"CMakeFiles/MyProject.dir/src/diffraction.cpp.obj" \
 "CMakeFiles/MyProject.dir/src/integral.cpp.obj" \
-"CMakeFiles/MyProject.dir/src/main.cpp.obj"
+"CMakeFiles/MyProject.dir/src/main.cpp.obj" \
+"CMakeFiles/MyProject.dir/src/optic.cpp.obj" \
+"CMakeFiles/MyProject.dir/src/visualize.cpp.obj"
 
 # External object files for target MyProject
 MyProject_EXTERNAL_OBJECTS =
 
-MyProject.exe: CMakeFiles/MyProject.dir/src/Rectangle.cpp.obj
-MyProject.exe: CMakeFiles/MyProject.dir/src/app.cpp.obj
-MyProject.exe: CMakeFiles/MyProject.dir/src/draw.cpp.obj
+MyProject.exe: CMakeFiles/MyProject.dir/src/diffraction.cpp.obj
 MyProject.exe: CMakeFiles/MyProject.dir/src/integral.cpp.obj
 MyProject.exe: CMakeFiles/MyProject.dir/src/main.cpp.obj
+MyProject.exe: CMakeFiles/MyProject.dir/src/optic.cpp.obj
+MyProject.exe: CMakeFiles/MyProject.dir/src/visualize.cpp.obj
 MyProject.exe: CMakeFiles/MyProject.dir/build.make
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_gapi.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_stitching.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_alphamat.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_aruco.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_bgsegm.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_ccalib.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_cvv.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_dnn_objdetect.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_dnn_superres.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_dpm.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_face.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_freetype.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_fuzzy.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_hdf.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_hfs.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_img_hash.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_intensity_transform.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_line_descriptor.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_mcc.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_ovis.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_quality.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_rapid.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_reg.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_rgbd.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_saliency.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_sfm.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_signal.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_stereo.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_structured_light.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_superres.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_surface_matching.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_tracking.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_videostab.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_viz.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_wechat_qrcode.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_xfeatures2d.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_xobjdetect.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_xphoto.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_shape.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_highgui.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_datasets.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_plot.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_text.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_ml.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_phase_unwrapping.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_optflow.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_ximgproc.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_video.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_videoio.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_imgcodecs.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_objdetect.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_calib3d.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_dnn.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_features2d.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_flann.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_photo.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_imgproc.dll.a
+MyProject.exe: E:/msys64/ucrt64/lib/libopencv_core.dll.a
 MyProject.exe: CMakeFiles/MyProject.dir/linkLibs.rsp
 MyProject.exe: CMakeFiles/MyProject.dir/objects1.rsp
 MyProject.exe: CMakeFiles/MyProject.dir/link.txt

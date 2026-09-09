@@ -1,21 +1,9 @@
 [
 {
   "directory": "D:/code/cmake/fox-li/build",
-  "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\Rectangle.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\Rectangle.cpp",
-  "file": "D:/code/cmake/fox-li/src/Rectangle.cpp",
-  "output": "CMakeFiles/MyProject.dir/src/Rectangle.cpp.obj"
-},
-{
-  "directory": "D:/code/cmake/fox-li/build",
-  "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\app.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\app.cpp",
-  "file": "D:/code/cmake/fox-li/src/app.cpp",
-  "output": "CMakeFiles/MyProject.dir/src/app.cpp.obj"
-},
-{
-  "directory": "D:/code/cmake/fox-li/build",
-  "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\draw.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\draw.cpp",
-  "file": "D:/code/cmake/fox-li/src/draw.cpp",
-  "output": "CMakeFiles/MyProject.dir/src/draw.cpp.obj"
+  "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\diffraction.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\diffraction.cpp",
+  "file": "D:/code/cmake/fox-li/src/diffraction.cpp",
+  "output": "CMakeFiles/MyProject.dir/src/diffraction.cpp.obj"
 },
 {
   "directory": "D:/code/cmake/fox-li/build",
@@ -28,5 +16,17 @@
   "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\main.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\main.cpp",
   "file": "D:/code/cmake/fox-li/src/main.cpp",
   "output": "CMakeFiles/MyProject.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/code/cmake/fox-li/build",
+  "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\optic.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\optic.cpp",
+  "file": "D:/code/cmake/fox-li/src/optic.cpp",
+  "output": "CMakeFiles/MyProject.dir/src/optic.cpp.obj"
+},
+{
+  "directory": "D:/code/cmake/fox-li/build",
+  "command": "E:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MyProject.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\MyProject.dir\\src\\visualize.cpp.obj -c D:\\code\\cmake\\fox-li\\src\\visualize.cpp",
+  "file": "D:/code/cmake/fox-li/src/visualize.cpp",
+  "output": "CMakeFiles/MyProject.dir/src/visualize.cpp.obj"
 }
 ]

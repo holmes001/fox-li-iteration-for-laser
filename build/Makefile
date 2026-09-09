@@ -128,77 +128,29 @@ MyProject/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/build
 .PHONY : MyProject/fast
 
-src/Rectangle.obj: src/Rectangle.cpp.obj
-.PHONY : src/Rectangle.obj
+src/diffraction.obj: src/diffraction.cpp.obj
+.PHONY : src/diffraction.obj
 
 # target to build an object file
-src/Rectangle.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/Rectangle.cpp.obj
-.PHONY : src/Rectangle.cpp.obj
+src/diffraction.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/diffraction.cpp.obj
+.PHONY : src/diffraction.cpp.obj
 
-src/Rectangle.i: src/Rectangle.cpp.i
-.PHONY : src/Rectangle.i
-
-# target to preprocess a source file
-src/Rectangle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/Rectangle.cpp.i
-.PHONY : src/Rectangle.cpp.i
-
-src/Rectangle.s: src/Rectangle.cpp.s
-.PHONY : src/Rectangle.s
-
-# target to generate assembly for a file
-src/Rectangle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/Rectangle.cpp.s
-.PHONY : src/Rectangle.cpp.s
-
-src/app.obj: src/app.cpp.obj
-.PHONY : src/app.obj
-
-# target to build an object file
-src/app.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/app.cpp.obj
-.PHONY : src/app.cpp.obj
-
-src/app.i: src/app.cpp.i
-.PHONY : src/app.i
+src/diffraction.i: src/diffraction.cpp.i
+.PHONY : src/diffraction.i
 
 # target to preprocess a source file
-src/app.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/app.cpp.i
-.PHONY : src/app.cpp.i
+src/diffraction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/diffraction.cpp.i
+.PHONY : src/diffraction.cpp.i
 
-src/app.s: src/app.cpp.s
-.PHONY : src/app.s
-
-# target to generate assembly for a file
-src/app.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/app.cpp.s
-.PHONY : src/app.cpp.s
-
-src/draw.obj: src/draw.cpp.obj
-.PHONY : src/draw.obj
-
-# target to build an object file
-src/draw.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/draw.cpp.obj
-.PHONY : src/draw.cpp.obj
-
-src/draw.i: src/draw.cpp.i
-.PHONY : src/draw.i
-
-# target to preprocess a source file
-src/draw.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/draw.cpp.i
-.PHONY : src/draw.cpp.i
-
-src/draw.s: src/draw.cpp.s
-.PHONY : src/draw.s
+src/diffraction.s: src/diffraction.cpp.s
+.PHONY : src/diffraction.s
 
 # target to generate assembly for a file
-src/draw.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/draw.cpp.s
-.PHONY : src/draw.cpp.s
+src/diffraction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/diffraction.cpp.s
+.PHONY : src/diffraction.cpp.s
 
 src/integral.obj: src/integral.cpp.obj
 .PHONY : src/integral.obj
@@ -248,6 +200,54 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/optic.obj: src/optic.cpp.obj
+.PHONY : src/optic.obj
+
+# target to build an object file
+src/optic.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/optic.cpp.obj
+.PHONY : src/optic.cpp.obj
+
+src/optic.i: src/optic.cpp.i
+.PHONY : src/optic.i
+
+# target to preprocess a source file
+src/optic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/optic.cpp.i
+.PHONY : src/optic.cpp.i
+
+src/optic.s: src/optic.cpp.s
+.PHONY : src/optic.s
+
+# target to generate assembly for a file
+src/optic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/optic.cpp.s
+.PHONY : src/optic.cpp.s
+
+src/visualize.obj: src/visualize.cpp.obj
+.PHONY : src/visualize.obj
+
+# target to build an object file
+src/visualize.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/visualize.cpp.obj
+.PHONY : src/visualize.cpp.obj
+
+src/visualize.i: src/visualize.cpp.i
+.PHONY : src/visualize.i
+
+# target to preprocess a source file
+src/visualize.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/visualize.cpp.i
+.PHONY : src/visualize.cpp.i
+
+src/visualize.s: src/visualize.cpp.s
+.PHONY : src/visualize.s
+
+# target to generate assembly for a file
+src/visualize.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/visualize.cpp.s
+.PHONY : src/visualize.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -257,21 +257,21 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... MyProject
-	@echo ... src/Rectangle.obj
-	@echo ... src/Rectangle.i
-	@echo ... src/Rectangle.s
-	@echo ... src/app.obj
-	@echo ... src/app.i
-	@echo ... src/app.s
-	@echo ... src/draw.obj
-	@echo ... src/draw.i
-	@echo ... src/draw.s
+	@echo ... src/diffraction.obj
+	@echo ... src/diffraction.i
+	@echo ... src/diffraction.s
 	@echo ... src/integral.obj
 	@echo ... src/integral.i
 	@echo ... src/integral.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... src/optic.obj
+	@echo ... src/optic.i
+	@echo ... src/optic.s
+	@echo ... src/visualize.obj
+	@echo ... src/visualize.i
+	@echo ... src/visualize.s
 .PHONY : help
 
 

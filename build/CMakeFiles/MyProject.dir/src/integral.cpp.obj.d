@@ -1,5 +1,6 @@
 CMakeFiles/MyProject.dir/src/integral.cpp.obj: \
  D:\code\cmake\fox-li\src\integral.cpp \
+ D:/code/cmake/fox-li/inc/integral.h \
  E:/msys64/ucrt64/include/c++/16.1.0/iostream \
  E:/msys64/ucrt64/include/c++/16.1.0/bits/requires_hosted.h \
  E:/msys64/ucrt64/include/c++/16.1.0/x86_64-w64-mingw32/bits/c++config.h \

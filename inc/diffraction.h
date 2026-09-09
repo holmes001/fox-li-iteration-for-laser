@@ -1,5 +1,5 @@
-#ifndef APP_H
-#define APP_H
+#ifndef DIFFRACTION_H
+#define DIFRACTION_H
 
 #include <complex>
 #include <fftw3.h>
@@ -13,6 +13,6 @@ std::complex<double> fresnel_transfer_function(double fx, double fy, double lamb
  */
 void propagate_angular_spectrum(fftw_complex* input, fftw_complex* output,
                                 int N, double dx, double lambda, double z,
-                                std::complex<double> (*H)(double, double, double, double, double) = default_transfer_function);
+                                std::complex<double> (*H)(double, double, double, double, double));
 
-#endif  // APP_H
+#endif  // DIFRACTION_H
