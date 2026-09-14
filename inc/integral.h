@@ -4,20 +4,20 @@
 #include <iostream>
 #include <math.h> 
 
-// 通用梯形法则（支持 double 和 complex<double>）
+// Composite trapezoidal rule for both double and std::complex<double>.
 /**
- * 梯形法则 (复合梯形公式)
- * @param f     被积函数指针 double f(double x)
- * @param a     积分下限
- * @param b     积分上限
- * @param n     分段数 (n > 0)
- * @return      积分近似值
+ * Computes a composite trapezoidal-rule integral.
+ * @param f Integrand callable, such as a function of one real variable.
+ * @param a Lower bound.
+ * @param b Upper bound.
+ * @param n Number of segments (n > 0).
+ * @return Approximate integral value.
  */
 template<typename T, typename Func>
 T trapezoidal_generic(Func f, double a, double b, int n) {
     if (n <= 0) return T(0);
     double h = (b - a) / n;
-    T sum = (f(a) + f(b)) * 0.5;  // 复数支持与标量乘法
+    T sum = (f(a) + f(b)) * 0.5;  // Supports both real and complex values.
     for (int i = 1; i < n; ++i) {
         sum += f(a + i * h);
     }
@@ -25,12 +25,12 @@ T trapezoidal_generic(Func f, double a, double b, int n) {
 }
 
 /**
- * 辛普森法则 (复合辛普森公式，要求 n 为偶数)
- * @param f     被积函数指针 double f(double x)
- * @param a     积分下限
- * @param b     积分上限
- * @param n     分段数 (自动调整为偶数)
- * @return      积分近似值
+ * Computes a composite Simpson-rule integral.
+ * @param f Integrand callable, such as a function of one real variable.
+ * @param a Lower bound.
+ * @param b Upper bound.
+ * @param n Number of segments; adjusted to an even number automatically.
+ * @return Approximate integral value.
  */
 template<typename T, typename Func>
 T simpson_generic(Func f, double a, double b, int n) {
@@ -45,16 +45,18 @@ T simpson_generic(Func f, double a, double b, int n) {
     return sum * h / T(3);
 }
 
-
-/* ---------- 二维数值积分 (矩形区域) ---------- */
+/* ---------- 2D numerical integration over a rectangular region ---------- */
 
 /**
- * 二维复合辛普森公式 (要求 nx, ny 均为偶数)
- * @param f     被积函数指针 double f(double x, double y)
- * @param x1,x2 x 方向积分区间
- * @param y1,y2 y 方向积分区间
- * @param nx,ny 两个方向的分段数 (自动调整为偶数)
- * @return      二重积分近似值
+ * Computes a two-dimensional composite Simpson-rule integral.
+ * @param f Integrand callable of two real variables.
+ * @param x1 Lower x bound.
+ * @param x2 Upper x bound.
+ * @param y1 Lower y bound.
+ * @param y2 Upper y bound.
+ * @param nx Number of segments in x; adjusted to an even number automatically.
+ * @param ny Number of segments in y; adjusted to an even number automatically.
+ * @return Approximate double integral value.
  */
 template<typename T, typename Func>
 T integral_2d_simpson(Func f, double x1, double x2, double y1, double y2, int nx, int ny) {

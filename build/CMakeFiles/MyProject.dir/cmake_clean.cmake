@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MyProject.dir/src/main.cpp.obj.d"
   "CMakeFiles/MyProject.dir/src/optic.cpp.obj"
   "CMakeFiles/MyProject.dir/src/optic.cpp.obj.d"
+  "CMakeFiles/MyProject.dir/src/pump.cpp.obj"
+  "CMakeFiles/MyProject.dir/src/pump.cpp.obj.d"
   "CMakeFiles/MyProject.dir/src/visualize.cpp.obj"
   "CMakeFiles/MyProject.dir/src/visualize.cpp.obj.d"
   "MyProject.exe"

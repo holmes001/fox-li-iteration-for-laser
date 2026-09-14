@@ -2,17 +2,33 @@
 #define SIMULATION_CONFIG_H
 
 #include <iostream>
+#include <complex>
+
 #include "integral.h"
 
 #pragma once
-struct SimulationConfig {
-    int N = 512;                  // 网格数
-    double dx = 1e-6;            // 采样间隔 (m)
-    double lambda = 0.5e-6;      // 波长 (m)
-    double cavity_length = 0.1;  // 腔长 (m)
-    double mirror_radius = 50e-6;// 镜面半径 (m)
-    int num_iterations = 100;    // 迭代次数
-    std::string output_dir = "./picture/";
-};
+using Complex = std::complex<double>;
+
+/** Stores the dimensions, sampling interval, and complex samples of a field. */
+typedef struct{
+    int N;
+    double dx;
+    Complex* field;
+}grid;
+
+/** Stores the wavelength, size, position, and angle of a beam. */
+typedef struct{
+    double lambda;
+    double radius;
+    double x_offset;
+    double y_offset;
+    double theta;
+}beam;
+
+/** Stores the aperture radius and curvature radius of a mirror. */
+typedef struct{
+    double radius;
+    double curve_radius;
+}mirror;
 
 #endif // SIMULATION_CONFIG_H

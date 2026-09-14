@@ -4,15 +4,38 @@
 #include <complex>
 #include <fftw3.h>
 
-// 声明默认传递函数（角谱传递函数）
-std::complex<double> default_transfer_function(double fx, double fy, double lambda, double z, double k);
-std::complex<double> fresnel_transfer_function(double fx, double fy, double lambda, double z, double k);
+#include "SimConfig.h"
+
 /**
- * 角谱传播函数，支持自定义传递函数
- * @param H 传递函数指针，默认使用角谱传递函数
+ * Default transfer function for angular-spectrum propagation.
+ * @param fx Spatial frequency in x.
+ * @param fy Spatial frequency in y.
+ * @param lambda Wavelength.
+ * @param z Propagation distance.
+ * @param k Wavenumber.
+ * @return Transfer function value.
  */
-void propagate_angular_spectrum(fftw_complex* input, fftw_complex* output,
-                                int N, double dx, double lambda, double z,
-                                std::complex<double> (*H)(double, double, double, double, double));
+Complex default_transfer_function(double fx, double fy, double lambda, double z, double k);
+
+/**
+ * Fresnel transfer function.
+ * @param fx Spatial frequency in x.
+ * @param fy Spatial frequency in y.
+ * @param lambda Wavelength.
+ * @param z Propagation distance.
+ * @param k Wavenumber.
+ * @return Transfer function value.
+ */
+Complex fresnel_transfer_function(double fx, double fy, double lambda, double z, double k);
+
+/**
+ * Propagates a field with the angular-spectrum method.
+ * @param field Input and output optical field.
+ * @param beam Beam parameters containing the wavelength.
+ * @param L Propagation distance in meters.
+ * @param H Transfer-function callback.
+ */
+void propagate_angular_spectrum(grid field, beam beam,double L,
+                                Complex (*H)(double, double, double, double, double));
 
 #endif  // DIFRACTION_H

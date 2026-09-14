@@ -8,10 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Placeholder for upcoming features.
+- Encapsulated grid, beam, and mirror configuration in the `grid`, `beam`, and `mirror` structures.
+- Added structure-based parameter passing to propagation, aperture, mirror, pump, and mode-generation functions.
+- Added English documentation for the main simulation modules and public functions.
 
 ### Changed
-- Placeholder for upcoming changes.
+- Centralized shared simulation types and the `Complex` alias in `inc/SimConfig.h`.
+- Updated the grid sampling interval to use a floating-point value so physical sampling distances such as `1e-5` are preserved.
+- Improved field image scaling and output handling for generated simulation images.
 
 ### Deprecated
 - Placeholder for soon‑to‑be removed features.
@@ -20,7 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Placeholder for removed features.
 
 ### Fixed
-- Placeholder for bug fixes.
+- Resolved naming conflicts between the project `Complex` alias and OpenCV's `cv::Complex` by avoiding global OpenCV namespace imports in public headers.
+- Prevented the gain-and-loss step from replacing the propagated field with a new constant field on every iteration.
 
 ### Security
 - Placeholder for security fixes.

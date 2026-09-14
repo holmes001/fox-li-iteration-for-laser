@@ -18,6 +18,26 @@
 
 ---
 
+## Program Structure
+
+- `inc/` contains public headers and shared simulation types.
+- `src/` contains the Fox-Li iteration, optical propagation, mirror and beam operations, numerical integration, and image output.
+- `picture/` stores field images generated during the simulation.
+- `build/` is the CMake build directory and is generated locally.
+- `CMakeLists.txt` defines the C++17 executable and links FFTW3 and OpenCV.
+
+The shared simulation configuration is defined in `inc/SimConfig.h`:
+
+- `grid` stores the grid size, sampling interval, and complex field samples.
+- `beam` stores the wavelength, beam radius, transverse offsets, and incidence angle.
+- `mirror` stores the aperture radius and curvature radius.
+
+These structures are passed to the propagation, pump, aperture, mirror, and mode-generation functions. This keeps related parameters together, reduces long parameter lists, and makes the interfaces easier to extend.
+
+The main simulation loop initializes a field, applies the pump profile, propagates the field between the cavity mirrors, applies mirror phase and aperture effects, normalizes the field, and periodically saves field images.
+
+---
+
 ## Dependencies
 
 - **C++17** (or later) compiler (GCC, Clang, MSVC).

@@ -4,151 +4,139 @@
 #include <cmath>
 
 #include "integral.h"
+#include "SimConfig.h"
+
 /**
- * 
- * @param field         输入/输出光场（std::complex数组，行优先，N*N）
- * @param N             网格尺寸
- * @param dx            空间采样间隔 (m)
- * @param mirror_radius 镜面的物理半径 (m, 硬边光阑)
+ * Hermite polynomial.
+ * @param n Polynomial order.
+ * @param x Input value.
  */
-void apply_aperture(std::complex<double>* field, int N, double dx, double mirror_radius) {
-    double center = (N - 1) / 2.0;          // 像素中心
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            double x = (i - center) * dx;
-            double y = (j - center) * dx;
+static double Hermite(int n, double x) {
+    if (n == 0) return 1.0;
+    if (n == 1) return 2.0 * x;
+    double H0 = 1.0;
+    double H1 = 2.0 * x;
+    double Hn = 0.0;
+    for (int i = 2; i <= n; ++i) {
+        Hn = 2.0 * x * H1 - 2.0 * (i - 1) * H0;
+        H0 = H1;
+        H1 = Hn;
+    }
+    return Hn;
+}
+
+/**
+ * Applies a hard-edged circular aperture.
+ * @param field Input/output optical field array..
+ * @param mirror
+ */
+void apply_aperture(grid field, mirror mirror)  {
+    double center = (field.N - 1) / 2.0;          // Pixel-grid center.
+    for (int i = 0; i < field.N; ++i) {
+        for (int j = 0; j < field.N; ++j) {
+            double x = (i - center) * field.dx;
+            double y = (j - center) * field.dx;
             double r = std::sqrt(x*x + y*y);
-            if (r > mirror_radius) {
-                field[i*N + j] = 0.0;
+            if (r > mirror.radius) {
+                field.field[i*field.N + j] = 0.0;
             }
         }
     }
 }
 
 /**
- * 
- * @param field         输入/输出光场（std::complex数组，行优先，N*N）
- * @param N             网格尺寸
- * @param dx            空间采样间隔 (m)
- * @param mirror_radius 镜面的物理半径 (m, 硬边光阑)
+ * Applies a Gaussian aperture.
+ * @param field Input/output optical field array.
+ * @param mirror_radius Gaussian aperture radius.
  */
-void apply_aperture_gaussian(std::complex<double>* field, int N, double dx, double mirror_radius) {
-    double center = (N - 1) / 2.0;          // 像素中心
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            double x = (i - center) * dx;
-            double y = (j - center) * dx;
+void apply_aperture_gaussian(grid field, mirror mirror) {
+    double center = (field.N - 1) / 2.0;          // Pixel-grid center.
+    for (int i = 0; i < field.N; ++i) {
+        for (int j = 0; j < field.N; ++j) {
+            double x = (i - center) * field.dx;
+            double y = (j - center) * field.dx;
             double r = std::sqrt(x*x + y*y);
-            field[i*N+j] *= std::exp(-pow(r / mirror_radius, 8));
+            field.field[i*field.N+j] *= std::exp(-pow(r / mirror.radius, 8));
         }
     }
 }
 
-/**
- * 模拟凹面镜反射（硬边光阑 + 二次相位调制）
- * @param field         输入/输出光场（std::complex数组，行优先，N*N）
- * @param N             网格尺寸
- * @param dx            空间采样间隔 (m)
- * @param R             凹面镜曲率半径 (m, R>0为会聚凹面，R<0为发散凸面)
- * @param lambda        波长 (m)
- * @param mirror_radius 镜面的物理半径 (m, 硬边光阑)
- */
-void apply_concave_mirror(std::complex<double>* field, int N, double dx, 
-                          double R, double lambda, double mirror_radius) {
-    double k = 2.0 * M_PI / lambda;
-    double center = (N - 1) / 2.0;
 
-    for (int i = 0; i < N; ++i) {
-        double x = (i - center) * dx;
-        for (int j = 0; j < N; ++j) {
-            double y = (j - center) * dx;
+/**
+ * Applies a concave mirror phase and hard aperture.
+ * @param field Input/output optical field array.
+ * @param beam
+ * @param mirror
+ */
+void apply_concave_mirror(grid field, beam beam ,mirror mirror) {
+    double k = 2.0 * M_PI / beam.lambda;
+    double center = (field.N - 1) / 2.0;
+
+    // Astigmatism gives different tangential and sagittal curvature radii.
+    double cos_t = std::cos(beam.theta);
+    double R_x = mirror.curve_radius * cos_t;       // Tangential curvature radius.
+    double R_y = mirror.curve_radius / cos_t;       // Sagittal curvature radius.
+
+    for (int i = 0; i < field.N; ++i) {
+        double x = (i - center) * field.dx;
+        for (int j = 0; j < field.N; ++j) {
+            double y = (j - center) * field.dx;
             double r2 = x * x + y * y;
             double r = std::sqrt(r2);
-            
-            int idx = i * N + j;
+            int idx = i * field.N + j;
 
-            // 1. 硬边光阑：超出镜面半径的光场直接衰减为0（产生衍射损耗）
-            if (r > mirror_radius) {
-                field[idx] = std::complex<double>(0.0, 0.0);
+            // Zero the field outside the mirror aperture to model diffraction loss.
+            if (r > mirror.radius) {
+                field.field[idx] = Complex(0.0, 0.0);
             } else {
-                // 2. 凹面镜的傍轴相位因子：exp(-i * k * r^2 / R)
-                // 注意：根据 exp(i(kz - wt)) 传播约定，会聚凹面镜相位为负
-                double phase = -k * r2 / R; 
-                std::complex<double> mirror_phase(std::cos(phase), std::sin(phase));
-                
-                // 原场乘以相位
-                field[idx] *= mirror_phase;
+                // Use separate curvature radii for the x and y phase terms.
+                // A spherical mirror uses -k * r^2 / R.
+                // The astigmatic mirror uses -k * (x^2 / R_x + y^2 / R_y).
+                double phase = -k * (x * x / R_x + y * y / R_y);
+                Complex mirror_phase(std::cos(phase), std::sin(phase));
+                field.field[idx] *= mirror_phase;
             }
         }
     }
 }
 
 /**
- * mode TEM_00
- * @param field         输入/输出光场（std::complex数组，行优先，N*N）
- * @param N             网格尺寸
- * @param dx            空间采样间隔 (m)
- * @param mirror_radius 镜面的物理半径 (m, 硬边光阑)
+ * Generates a TEM00 mode field.
+ * @param field Input/output optical field array.
+ * @param beam
  */
-void TEM_00(std::complex<double>* field, int N, double dx, double beam_radius) {
-    double center = (N - 1) / 2.0;
-    for (int i = 0; i < N; ++i) {
-        double x = (i - center) * dx;
-        for (int j = 0; j < N; ++j) {
-            double y = (j - center) * dx;
-            double r2 = x * x + y * y;
-            field[i*N + j] *= std::exp(-r2 / (beam_radius * beam_radius));
+void TEM_00(grid field, beam beam){
+    double center = (field.N - 1) / 2.0;
+    for (int i = 0; i < field.N; ++i) {
+        double x = (i - center) * field.dx;
+        for (int j = 0; j < field.N; ++j) {
+            double y = (j - center) * field.dx;
+            double r2 = (x - beam.x_offset) * (x - beam.x_offset) + (y - beam.y_offset) * (y - beam.y_offset);
+            field.field[i*field.N + j] *= std::exp(-r2 / (beam.radius * beam.radius));
         }
     }
 }
 
 /**
- * initialize a uniform circular beam (top-hat profile)
- * @param field         输入/输出光场（std::complex数组，行优先，N*N）
- * @param N             网格尺寸
- * @param dx            空间采样间隔 (m)
- * @param mirror_radius 镜面的物理半径 (m, 硬边光阑)
+ * Generates a Hermite-Gaussian mode field.
+ * @param field 
+ * @param m Mode index in x direction.
+ * @param n Mode index in y direction.
+ * @param beam
  */
-void init_beam(std::complex<double>* field, int N, double dx, double beam_radius){
-    double center = (N - 1) / 2.0;
-    for (int i = 0; i < N; ++i) {
-        double x = (i - center) * dx;
-        for (int j = 0; j < N; ++j) {
-            double y = (j - center) * dx;
-            double r2 = x * x + y * y;
-            if(r2 <= beam_radius * beam_radius) {
-                field[i*N + j] = 1.0;
-            } else {
-                field[i*N + j] = 0.0;
-            }
+void HG(grid field,beam beam,int m,int n) {
+    double center = (field.N - 1) / 2.0;
+    for (int i = 0; i < field.N; ++i) {
+        double x = (i - center) * field.dx;
+        for (int j = 0; j < field.N; ++j) {
+            double y = (j - center) * field.dx;
+            double r2 = (x - beam.x_offset) * (x - beam.x_offset) + (y - beam.y_offset) * (y - beam.y_offset);
+            double hg_factor = Hermite(m, std::sqrt(2.0) * x / beam.radius)
+                 * Hermite(n, std::sqrt(2.0) * y / beam.radius);
+            field.field[i*field.N + j] *= 0.6* hg_factor * std::exp(-r2 / (beam.radius * beam.radius));
         }
     }
 }
 
-/**
- * 
- * @param field         输入/输出光场（std::complex数组，行优先，N*N）
- * @param N             网格尺寸
- * @param dx            空间采样间隔 (m)
- * @param mirror_radius 镜面的物理半径 (m, 硬边光阑)
- */
-void gain_and_loss(std::complex<double>* field, int N, double dx, double beam_radius){
-    double center = (N - 1) / 2.0;
-    for (int i = 0; i < N; ++i) {
-        double x = (i - center) * dx;
-        for (int j = 0; j < N; ++j) {
-            double y = (j - center) * dx;
-            double r2 = x * x + y * y;
-            if(r2 <= beam_radius * beam_radius) {
-                field[i*N + j] *= 1;
-            } 
-            else if (r2 < 64e-10) 
-            {
-                field[i*N + j] *= 1; // 中心强损耗
-            }
-            else {
-                field[i*N + j] *= 1;
-            }
-        }
-    }
-}
+
+

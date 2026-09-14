@@ -224,6 +224,30 @@ src/optic.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/optic.cpp.s
 .PHONY : src/optic.cpp.s
 
+src/pump.obj: src/pump.cpp.obj
+.PHONY : src/pump.obj
+
+# target to build an object file
+src/pump.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/pump.cpp.obj
+.PHONY : src/pump.cpp.obj
+
+src/pump.i: src/pump.cpp.i
+.PHONY : src/pump.i
+
+# target to preprocess a source file
+src/pump.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/pump.cpp.i
+.PHONY : src/pump.cpp.i
+
+src/pump.s: src/pump.cpp.s
+.PHONY : src/pump.s
+
+# target to generate assembly for a file
+src/pump.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/src/pump.cpp.s
+.PHONY : src/pump.cpp.s
+
 src/visualize.obj: src/visualize.cpp.obj
 .PHONY : src/visualize.obj
 
@@ -269,6 +293,9 @@ help:
 	@echo ... src/optic.obj
 	@echo ... src/optic.i
 	@echo ... src/optic.s
+	@echo ... src/pump.obj
+	@echo ... src/pump.i
+	@echo ... src/pump.s
 	@echo ... src/visualize.obj
 	@echo ... src/visualize.i
 	@echo ... src/visualize.s

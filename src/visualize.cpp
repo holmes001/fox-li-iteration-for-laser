@@ -13,12 +13,14 @@ using namespace std;
 using namespace cv;
 
 /**
- * color mapping function
- * @param value interval in x direction
- * @param minVal,maxVal minimum and maximum values of the array
- * @param r,g,b RGB values
- * @param colormap mapping type (default 0, 0=Jet,1=Hot,@=Rainbow)
- * @return  无
+ * Maps a scalar value to an RGB color.
+ * @param value Input value.
+ * @param minVal Minimum value of the array.
+ * @param maxVal Maximum value of the array.
+ * @param r Red channel output.
+ * @param g Green channel output.
+ * @param b Blue channel output.
+ * @param colormap Color map type (default 0: Jet, 1: Hot, others: Rainbow).
  */
 void valueToColor(double value, double minVal, double maxVal,
                   int &r, int &g, int &b, int colormap = 0) {
@@ -78,35 +80,36 @@ void valueToColor(double value, double minVal, double maxVal,
             b = static_cast<int>(bv * 255.0 + 0.5);
             break;
         }
-        default: {  // 灰度
+        default: {  
             int gray = static_cast<int>(t * 255.0 + 0.5);
             r = g = b = gray;
         }
     }
 }
 
-/** 
- * create graphical file from 2D array
- * @param data: 2D array (rows, cols)
- * @param filename: output filename (suggest .ppm)
- * @param minVal, maxVal: data mapping range (if equal, auto-calculated)
- * @param colormap: color map type (0=Jet, 1=Hot)
+/**
+ * Saves a 2D array as a color map image.
+ * @param data Input 2D array (rows, cols).
+ * @param filename Output filename (recommended extension: .ppm).
+ * @param minVal Minimum mapping value; auto-calculated when equal to maxVal.
+ * @param maxVal Maximum mapping value; auto-calculated when equal to minVal.
+ * @param colormap Color map type (0=Jet, 1=Hot).
  */
 void drawColorMap(const vector<vector<double>>& data,
                   const string& filename,
                   double minVal = 0.0, double maxVal = 1.0,
                   int colormap = 0) {
     if (data.empty() || data[0].empty()) {
-        cerr << "drawColorMap: 输入数组为空！" << endl;
+        cerr << "drawColorMap: input data is empty." << endl;
         return;
     }
 
     int rows = static_cast<int>(data.size());
     int cols = static_cast<int>(data[0].size());
 
-    // 自动计算范围（与原逻辑保持一致）
-    if (minVal == 0.0 && maxVal == 1.0) {
-        if (minVal >= maxVal) {
+    // Compute the data range automatically when the supplied range is invalid.
+    if (minVal >= maxVal) {
+        {
             double mn = data[0][0], mx = data[0][0];
             for (int i = 0; i < rows; ++i) {
                 for (int j = 0; j < cols; ++j) {
@@ -123,37 +126,37 @@ void drawColorMap(const vector<vector<double>>& data,
         }
     }
 
-    // 创建 OpenCV 图像矩阵 (BGR)
+    // Create an OpenCV image matrix in BGR format.
     Mat image(rows, cols, CV_8UC3);
 
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
             int r, g, b;
             valueToColor(data[i][j], minVal, maxVal, r, g, b, colormap);
-            // OpenCV 存储顺序为 BGR
+            // OpenCV stores color channels in BGR order.
             image.at<Vec3b>(i, j) = Vec3b(b, g, r);
         }
     }
 
-    // 保存图像
+    // Save the image.
     if (!imwrite(filename, image)) {
-        cerr << "drawColorMap: 无法保存文件 " << filename << endl;
+        cerr << "drawColorMap: unable to save file " << filename << endl;
     } else {
-        cout << "彩色图已保存为: " << filename << endl;
+        cout << "Color map saved to: " << filename << endl;
     }
 }
 
 /**
- * create graphical file from 1D array
- * @param data       input 1D array
- * @param filename   output filename (suggest .ppm)
- * @param width      image width (pixels)
- * @param height     image height (pixels)
- * @param minVal     minimum value of the y-axis (if minVal >= maxVal, auto-calculate)
- * @param maxVal     maximum value of the y-axis
- * @param lineColor  line color RGB array, default black {0,0,0}
- * @param bgColor    background color RGB array, default white {255,255,255}
- * @param drawAxis   whether to draw coordinate axes (default true)
+ * Saves a 1D array as a curve plot image.
+ * @param data Input 1D array.
+ * @param filename Output filename (recommended extension: .ppm).
+ * @param width Image width in pixels.
+ * @param height Image height in pixels.
+ * @param minVal Minimum y-axis value; auto-calculated when minVal >= maxVal.
+ * @param maxVal Maximum y-axis value.
+ * @param lineColor Line color in RGB, default {0,0,0}.
+ * @param bgColor Background color in RGB, default {255,255,255}.
+ * @param drawAxis Whether to draw axes; default true.
  */
 void drawCurve(const vector<double>& data,
                const string& filename,
@@ -165,13 +168,13 @@ void drawCurve(const vector<double>& data,
                const array<int, 3>& bgColor,
                bool drawAxis = true) {
     if (data.empty()) {
-        cerr << "drawCurve: 数据为空！" << endl;
+        cerr << "drawCurve: input data is empty." << endl;
         return;
     }
 
     int n = static_cast<int>(data.size());
 
-    // 自动计算数值范围
+    // Compute the value range automatically when needed.
     if (minVal >= maxVal) {
         double mn = data[0], mx = data[0];
         for (double v : data) {
@@ -187,10 +190,10 @@ void drawCurve(const vector<double>& data,
     }
     double range = maxVal - minVal;
 
-    // 创建图像并填充背景（BGR）
+    // Create the image and fill its BGR background.
     Mat image(height, width, CV_8UC3, Scalar(bgColor[2], bgColor[1], bgColor[0]));
 
-    // 坐标映射函数
+    // Map data coordinates to image coordinates.
     auto mapX = [&](int idx) -> int {
         if (n == 1) return width / 2;
         return static_cast<int>(idx * (width - 1) / (double)(n - 1) + 0.5);
@@ -202,32 +205,32 @@ void drawCurve(const vector<double>& data,
         return static_cast<int>((1.0 - t) * (height - 1) + 0.5);
     };
 
-    // 转换颜色为 BGR Scalar
+    // Convert the line color to an OpenCV BGR scalar.
     Scalar lineBGR(lineColor[2], lineColor[1], lineColor[0]);
 
-    // 绘制曲线
+    // Draw the curve.
     for (int i = 0; i < n - 1; ++i) {
         Point p1(mapX(i), mapY(data[i]));
         Point p2(mapX(i + 1), mapY(data[i + 1]));
         line(image, p1, p2, lineBGR, 1, LINE_AA);
     }
 
-    // 单点处理：绘制一个点（用一个小圆或单像素线）
+    // Handle a single data point.
     if (n == 1) {
         Point p(mapX(0), mapY(data[0]));
         circle(image, p, 1, lineBGR, -1, LINE_AA);
     }
 
-    // 绘制坐标轴
+    // Draw the coordinate axes.
     if (drawAxis) {
         const int tickLen = 6;
         Scalar axisBGR = lineBGR;
 
-        // 横轴和纵轴
+        // Draw the horizontal and vertical axes.
         line(image, Point(0, height - 1), Point(width - 1, height - 1), axisBGR, 1);
         line(image, Point(0, 0), Point(0, height - 1), axisBGR, 1);
 
-        // 横轴刻度
+        // Draw horizontal-axis ticks.
         int numXTicks = std::max(3, std::min(10, n / 50 + 2));
         if (n > 1) {
             for (int k = 0; k < numXTicks; ++k) {
@@ -240,7 +243,7 @@ void drawCurve(const vector<double>& data,
             line(image, Point(x, height - 1), Point(x, height - 1 - tickLen), axisBGR, 1);
         }
 
-        // 纵轴刻度
+        // Draw vertical-axis ticks.
         int numYTicks = 5;
         for (int k = 0; k < numYTicks; ++k) {
             double val = minVal + k * (maxVal - minVal) / (numYTicks - 1);
@@ -249,10 +252,10 @@ void drawCurve(const vector<double>& data,
         }
     }
 
-    // 保存图像
+    // Save the image.
     if (!imwrite(filename, image)) {
-        cerr << "drawCurve: 无法保存文件 " << filename << endl;
+        cerr << "drawCurve: unable to save file " << filename << endl;
     } else {
-        cout << "曲线图已保存为: " << filename << endl;
+        cout << "Curve image saved to: " << filename << endl;
     }
 }

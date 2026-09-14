@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/code/cmake/fox-li/src/integral.cpp" "CMakeFiles/MyProject.dir/src/integral.cpp.obj" "gcc" "CMakeFiles/MyProject.dir/src/integral.cpp.obj.d"
   "D:/code/cmake/fox-li/src/main.cpp" "CMakeFiles/MyProject.dir/src/main.cpp.obj" "gcc" "CMakeFiles/MyProject.dir/src/main.cpp.obj.d"
   "D:/code/cmake/fox-li/src/optic.cpp" "CMakeFiles/MyProject.dir/src/optic.cpp.obj" "gcc" "CMakeFiles/MyProject.dir/src/optic.cpp.obj.d"
+  "D:/code/cmake/fox-li/src/pump.cpp" "CMakeFiles/MyProject.dir/src/pump.cpp.obj" "gcc" "CMakeFiles/MyProject.dir/src/pump.cpp.obj.d"
   "D:/code/cmake/fox-li/src/visualize.cpp" "CMakeFiles/MyProject.dir/src/visualize.cpp.obj" "gcc" "CMakeFiles/MyProject.dir/src/visualize.cpp.obj.d"
   )
 
