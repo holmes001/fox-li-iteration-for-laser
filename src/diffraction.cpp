@@ -23,7 +23,7 @@ Complex fresnel_transfer_function(double fx, double fy, double lambda, double L,
  * @param L Propagation distance in meters.
  * @param H Transfer function used in the spatial-frequency domain.
  */
-void propagate_angular_spectrum(grid field, beam beam,double L,
+void propagate_angular_spectrum(grid& field, const beam& beam, double L,
                                 Complex (*H)(double, double, double, double, double)) {
     int N = field.N ;
     double dx = field.dx;
@@ -74,14 +74,14 @@ void propagate_angular_spectrum(grid field, beam beam,double L,
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
             Complex H_val = H(fx[i], fy[j], beam.lambda, L, k);
-            
+
             double H_real = H_val.real();
             double H_imag = H_val.imag();
 
             // Read the real and imaginary components.
             double Fr = buf_in[i*N + j][0];
             double Fi = buf_in[i*N + j][1];
-            
+
             // Multiply the spectrum by the transfer function.
             buf_in[i*N + j][0] = Fr * H_real - Fi * H_imag;
             buf_in[i*N + j][1] = Fr * H_imag + Fi * H_real;

@@ -30,7 +30,7 @@ static double Hermite(int n, double x) {
  * @param field Input/output optical field array..
  * @param mirror
  */
-void apply_aperture(grid field, mirror mirror)  {
+void apply_aperture(grid& field, const mirror& mirror)  {
     double center = (field.N - 1) / 2.0;          // Pixel-grid center.
     for (int i = 0; i < field.N; ++i) {
         for (int j = 0; j < field.N; ++j) {
@@ -49,7 +49,7 @@ void apply_aperture(grid field, mirror mirror)  {
  * @param field Input/output optical field array.
  * @param mirror_radius Gaussian aperture radius.
  */
-void apply_aperture_gaussian(grid field, mirror mirror) {
+void apply_aperture_gaussian(grid& field, const mirror& mirror) {
     double center = (field.N - 1) / 2.0;          // Pixel-grid center.
     for (int i = 0; i < field.N; ++i) {
         for (int j = 0; j < field.N; ++j) {
@@ -68,7 +68,7 @@ void apply_aperture_gaussian(grid field, mirror mirror) {
  * @param beam
  * @param mirror
  */
-void apply_concave_mirror(grid field, beam beam ,mirror mirror) {
+void apply_concave_mirror(grid& field, const beam& beam, const mirror& mirror) {
     double k = 2.0 * M_PI / beam.lambda;
     double center = (field.N - 1) / 2.0;
 
@@ -105,7 +105,7 @@ void apply_concave_mirror(grid field, beam beam ,mirror mirror) {
  * @param field Input/output optical field array.
  * @param beam
  */
-void TEM_00(grid field, beam beam){
+void TEM_00(grid& field, const beam& beam){
     double center = (field.N - 1) / 2.0;
     for (int i = 0; i < field.N; ++i) {
         double x = (i - center) * field.dx;
@@ -119,24 +119,21 @@ void TEM_00(grid field, beam beam){
 
 /**
  * Generates a Hermite-Gaussian mode field.
- * @param field 
+ * @param field
  * @param m Mode index in x direction.
  * @param n Mode index in y direction.
  * @param beam
  */
-void HG(grid field,beam beam,int m,int n) {
+void HG(grid& field, const beam& beam, int m, int n) {
     double center = (field.N - 1) / 2.0;
     for (int i = 0; i < field.N; ++i) {
         double x = (i - center) * field.dx;
         for (int j = 0; j < field.N; ++j) {
             double y = (j - center) * field.dx;
             double r2 = (x - beam.x_offset) * (x - beam.x_offset) + (y - beam.y_offset) * (y - beam.y_offset);
-            double hg_factor = Hermite(m, std::sqrt(2.0) * x / beam.radius)
-                 * Hermite(n, std::sqrt(2.0) * y / beam.radius);
+            double hg_factor = Hermite(m, std::sqrt(2.0) * (x - beam.x_offset) / beam.radius)
+                 * Hermite(n, std::sqrt(2.0) * (y - beam.y_offset) / beam.radius);
             field.field[i*field.N + j] *= 0.6* hg_factor * std::exp(-r2 / (beam.radius * beam.radius));
         }
     }
 }
-
-
-

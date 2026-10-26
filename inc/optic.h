@@ -15,14 +15,14 @@ static double Hermite(int n, double x);
  * @param field Input and output optical field.
  * @param mirror Mirror aperture parameters.
  */
-void apply_aperture(grid field, mirror mirror) ;
+void apply_aperture(grid& field, const mirror& mirror) ;
 
 /**
  * Applies a Gaussian aperture.
  * @param field Input and output optical field.
  * @param mirror Mirror aperture parameters.
  */
-void apply_aperture_gaussian(grid field, mirror mirror);
+void apply_aperture_gaussian(grid& field, const mirror& mirror);
 
 /**
  * Applies a concave mirror phase and hard aperture.
@@ -30,14 +30,14 @@ void apply_aperture_gaussian(grid field, mirror mirror);
  * @param beam Beam parameters containing wavelength and angle.
  * @param mirror Mirror aperture and curvature parameters.
  */
-void apply_concave_mirror(grid field, beam beam ,mirror mirror);
+void apply_concave_mirror(grid& field, const beam& beam, const mirror& mirror);
 
 /**
  * Generates a TEM00 mode field.
  * @param field Input and output optical field.
  * @param beam Beam waist and offset parameters.
  */
-void TEM_00(grid field, beam beam); 
+void TEM_00(grid& field, const beam& beam);
 
 /**
  * Generates a Hermite-Gaussian mode field.
@@ -46,14 +46,7 @@ void TEM_00(grid field, beam beam);
  * @param n Mode index in y direction.
  * @param beam Beam waist and offset parameters.
  */
-void HG(grid field,beam beam,int m,int n);
-
-/**
- * Initializes a top-hat beam profile.
- * @param field Input and output optical field.
- * @param beam Top-hat beam parameters.
- */
-void init_beam(grid field, beam beam) ;
+void HG(grid& field, const beam& beam, int m, int n);
 
 
-#endif 
+#endif

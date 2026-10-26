@@ -35,7 +35,7 @@ Complex fresnel_transfer_function(double fx, double fy, double lambda, double z,
  * @param L Propagation distance in meters.
  * @param H Transfer-function callback.
  */
-void propagate_angular_spectrum(grid field, beam beam,double L,
+void propagate_angular_spectrum(grid& field, const beam& beam, double L,
                                 Complex (*H)(double, double, double, double, double));
 
 #endif  // DIFRACTION_H
